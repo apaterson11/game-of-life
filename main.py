@@ -21,7 +21,7 @@ def main():
 
     startBoard = board
     #display each generation
-    for i in range(0, int(iterations)):
+    for i in range(0, int(iterations)-1):
         for a in board:
             print (' '.join(a))
         print("\n")
@@ -75,12 +75,11 @@ def nextGen(board, x, y):
             #check all neighbours (diagonal, horizontal and vertical) to see if they are alive 
             for m in range(-1, 2):
                 for n in range(-1,2):
-                    if (i+m) >= x or (j+n) >= y:        #prevents index error
+                    if (i+m) >= x or (j+n) >= y or (i+m) < 0 or (j+n) < 0:        #prevents index error and logic error
                         pass
                     elif board[i+m][j+n] == "*":
                         if (m != 0) or (n != 0):        #prevents cell counting itself as neighbour
                             aliveNeighbours += 1
-            
 
             
             #rules
