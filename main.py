@@ -9,7 +9,8 @@ def main():
     clear = lambda: os.system('cls')
 
     #read input and generate initial board
-    board = readInput(filename = "input.txt")
+    filename = input("Please enter the file name of your desired input: ")
+    board = readInput(filename)
     
     iterations = input("How many generations do you want to see?\n")
     clear()
