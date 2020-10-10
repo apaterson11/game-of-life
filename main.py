@@ -11,9 +11,13 @@ def main():
     #read input and generate initial board
     filename = input("Please enter the file name of your desired input: ")
     board = readInput(filename)
+
+    f = open(filename, "r")
+    boardDetails = f.read().split()
     
     iterations = input("How many generations do you want to see?\n")
     clear()
+
 
     startBoard = board
     #display each generation
@@ -22,7 +26,7 @@ def main():
             print (' '.join(a))
         print("\n")
 
-        newBoard = nextGen(board, 4, 8)
+        newBoard = nextGen(board, int(boardDetails[0]), int(boardDetails[1]))
         board = newBoard
 
         print("Generation " + str(i+1))
